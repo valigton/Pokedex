@@ -37,19 +37,16 @@ export default function PokeCard(props) {
     }
   }, [props.name])
 
-  handleClick = () => {
-    console.log("click")
-  }
-
+  console.log(props.index)
   return (
     <Card className={classes.root} >
       <CardActionArea>
       <CardMedia
         className={classes.media}
-        image={`https://pokeres.bastionbot.org/images/pokemon/1.png`}
+        image={`https://pokeres.bastionbot.org/images/pokemon/${props.index + 1}.png`}
         title="Pokemon Image"
         />
-        <CardContent onClick={handleClick}>
+        <CardContent>
           <div className={classes.type} >
             <div>
               <img src={Pokeball} className={classes.img} alt="Pokeball" />

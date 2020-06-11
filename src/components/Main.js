@@ -37,9 +37,9 @@ export default function Main() {
     <div className={classes.root}>
       <ul className={classes.ul}>
         {pokemon ? 
-          pokemon.map(data => (
+          pokemon.map((data, index) => (
             <li key={data.name}>
-              <PokeCard name={data.name}/>
+              <PokeCard name={data.name} index={index}/>
             </li> 
           ))
         : ''}
