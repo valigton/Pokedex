@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardMedia, CardActionArea, CardContent, }from '@material-ui/core';
 
@@ -30,23 +31,30 @@ const useStyles = makeStyles({
 export default function PokeCard(props) {
   const classes = useStyles();
   const [name, setName] = useState('');
+  const [id, setId] = useState(0);
+  const history = useHistory();
 
   useEffect(() => {
     if(props.name) {
       setName(props.name);
+      setId(props.index);
     }
-  }, [props.name])
+  }, [props.index, props.name])
 
-  console.log(props.index)
+  function handleClick() {
+    history.push(`pokemon/${id+1}`)
+  }
+
   return (
-    <Card className={classes.root} >
-      <CardActionArea>
+    <Card className={classes.root}>
+      <CardActionArea onClick={handleClick}>
       <CardMedia
         className={classes.media}
-        image={`https://pokeres.bastionbot.org/images/pokemon/${props.index + 1}.png`}
+        image={`https://pokeres.bastionbot.org/images/pokemon/${id + 1}.png`}
         title="Pokemon Image"
         />
         <CardContent>
+          <p>#00{id+1}</p>
           <div className={classes.type} >
             <div>
               <img src={Pokeball} className={classes.img} alt="Pokeball" />

@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 
-import TopBar from "./components/TopBar";
-import Main from './components/Main';
+import TopBar from './components/TopBar'
+import Routes from './routes'
 
 function App() {
   return (
-    <>
-      <TopBar />
-      <Main />
+  	<>
+  		<TopBar />
+    	<Routes />
     </>
   );
 }

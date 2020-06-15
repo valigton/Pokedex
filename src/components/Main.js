@@ -11,12 +11,12 @@ const styles = makeStyles({
     maxWidth: '980px',
     margin: '0 auto',
     padding: '50px 0',
-    textAlign: 'center',
+    justifyContent: 'center'
   },
   ul: {
     listStyle: 'none',
     display: 'grid',
-    gridTemplateColumns: "repeat(5, 1fr)",
+    gridTemplateColumns: "repeat(4, 1fr)",
     gridGap: '30px',
     marginTop: '10px',
   }
@@ -31,7 +31,7 @@ export default function Main() {
       setPokemon(response.data.results);
     }
     loadPokemon();
-  }, [])
+  }, []);
 
   return(
     <div className={classes.root}>
